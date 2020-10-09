@@ -1,0 +1,28 @@
+.pop-list {
+  width: 100%;
+  margin: 0 auto;
+  color: $dark;
+  background-color: #fff;
+  box-shadow: 0 0 1rem darken($bg, 25%);
+  @media screen and (max-width: $breakpoint-sm) {
+    width: 90%;
+  }
+
+  li {
+    overflow-x: hidden;
+    padding: 1.5rem;
+    text-align: left;
+    position: relative;
+    z-index: 0;
+    transition: background-color 0.25s;
+    @media screen and (max-width: $breakpoint-sm) {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: $secondary;
+      z-index: 1;
+    }
+  }
+}

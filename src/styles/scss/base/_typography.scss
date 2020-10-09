@@ -1,0 +1,31 @@
+.heading {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 2rem 0;
+  color: $accent;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    font-size: 1.1 * 2rem;
+    margin: 1rem 1rem;
+    // text-align: center;
+    width: 100%;
+  }
+}
+
+.sub-heading {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: $accent;
+  text-align: center;
+
+  @media screen and (max-width: $breakpoint-sm) {
+    font-size: 1.1 * 1.25rem;
+    margin: 1.5rem auto;
+    margin-left: 1rem;
+    text-align: left;
+    width: 100%;
+  }
+}

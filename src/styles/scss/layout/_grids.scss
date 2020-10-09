@@ -1,0 +1,63 @@
+.col-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+
+  @include breakpoint-lg {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include breakpoint-md {
+    grid-gap: 0rem;
+  }
+
+  grid-gap: 0.5rem;
+
+  @include breakpoint-sm {
+    display: block;
+  }
+}
+
+.layout {
+  display: grid;
+  margin: 0 6rem;
+
+  @include breakpoint-md {
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .main {
+    z-index: 1;
+    min-height: 100vh;
+    max-width: $container;
+    padding: 0 3rem;
+
+    @include breakpoint-lg {
+      padding: 0 2rem;
+    }
+
+    @include breakpoint-md {
+      padding: 0 2rem;
+    }
+
+    @include breakpoint-sm {
+      padding: 0;
+    }
+  }
+}
+
+.main-portfolio {
+  margin: auto;
+  margin-top: 3rem;
+}
+
+@keyframes Scroll {
+  from {
+    background-position-y: 0%;
+  }
+
+  to {
+    background-position-y: 100%;
+  }
+}
