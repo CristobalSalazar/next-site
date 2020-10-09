@@ -19,9 +19,8 @@
 }
 
 .layout {
-  display: grid;
-  margin: 0 6rem;
-
+  width: $container;
+  margin: 0 auto;
   @include breakpoint-md {
     overflow-x: hidden;
     display: block;
@@ -30,6 +29,7 @@
   .main {
     z-index: 1;
     min-height: 100vh;
+    margin-bottom: 12rem;
     max-width: $container;
     padding: 0 3rem;
 

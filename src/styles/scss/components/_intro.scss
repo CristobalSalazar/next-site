@@ -10,9 +10,9 @@
   }
 
   .title-container {
-    position: absolute;
     display: flex;
-    margin-left: 1/7 * 100%;
+    width: 100%;
+    margin-left: 25%;
     height: 100vh;
 
     @include breakpoint-md {
