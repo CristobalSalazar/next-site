@@ -16,7 +16,7 @@ export default function Index() {
           <Hero title="Cristobal Salazar" subtitle="Full-Stack Web Developer" />
         </header>
 
-        <div className="block max-w-6xl mx-auto overflow-x-hidden xl:max-w-4xl lg:max-w-3xl">
+        <div className="block max-w-6xl mx-auto overflow-x-hidden xl:max-w-5xl lg:max-w-3xl">
           <main className="min-h-screen mb-32" role="main">
             <Welcome />
             <Skills />

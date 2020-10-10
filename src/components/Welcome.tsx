@@ -1,4 +1,5 @@
 import Section from "./Section";
+import Text from "./Text";
 
 interface WelcomeProps {}
 export default function Welcome(props: WelcomeProps) {
@@ -11,7 +12,7 @@ export default function Welcome(props: WelcomeProps) {
             className="object-cover w-64 h-64 mx-auto my-12 rounded-full"
           />
         </div>
-        <p className="w-full font-serif leading-relaxed">
+        <Text>
           My love for software began while studying Audio production at Humber
           College, I started wondering how the technology all around me was
           built. Curious to see what kind of software I could develop, I quickly
@@ -21,8 +22,8 @@ export default function Welcome(props: WelcomeProps) {
           comfortable with C#, and having prior programming experience, it
           didn’t take long before I added web technologies such as Javascript,
           Typescript, React, Node.js, and many others to my skillset.
-        </p>
-        <p className="w-full font-serif leading-relaxed">
+        </Text>
+        <Text>
           If you're in need of a developer on your team, or if you’re in need of
           a website to promote your business, showcase your portfolio, or bring
           your app ideas to life, feel free to
@@ -41,7 +42,7 @@ export default function Welcome(props: WelcomeProps) {
             To view examples of my work created over the years. Please visit the
             portfolio section.
           </em>
-        </p>
+        </Text>
       </div>
     </Section>
   );

@@ -1,10 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
 
-function cn(...classNames: string[]) {
-  return classNames.join(" ");
-}
-
 interface NavProps {
   title: string;
   links: { name: string; route: string; active?: boolean }[];
@@ -23,7 +19,7 @@ export default function Nav({ title, links }: NavProps) {
         className={`shadow-md fixed z-10 flex justify-between w-screen p-3 bg-light`}
       >
         <div className="flex ml-4">
-          <h1 className="box-border pr-4 text-xl font-normal uppercase border-r border-black md:hidden h-100 dark">
+          <h1 className="box-border pr-4 font-normal uppercase border-r border-black md:hidden h-100 dark">
             {title}
           </h1>
           <ul className="ml-4 sm:ml-0">
@@ -32,8 +28,8 @@ export default function Nav({ title, links }: NavProps) {
                 <Link href={link.route}>
                   <a
                     className={`${
-                      link.active ? "accent" : "muted"
-                    } text-lg text-serif hover:text-accent transition-colors duration-150`}
+                      link.active ? "text-accent" : "text-muted"
+                    } text-serif hover:text-accent transition-colors duration-150`}
                   >
                     {link.name}
                   </a>

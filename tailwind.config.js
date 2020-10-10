@@ -13,7 +13,7 @@ module.exports = {
       xl: { max: "1366px" },
     },
     fontFamily: {
-      serif: ["David Libre", "Georgia", "Times New Roman", "Times", "serif"],
+      serif: ["Georgia", "Times New Roman", "Times", "serif"],
     },
     extend: {
       height: {
@@ -25,6 +25,7 @@ module.exports = {
         primary: "#edc988",
         secondary: "#f8efd4",
         accent: "#d7385e",
+        muted: "#666",
       },
     },
   },
