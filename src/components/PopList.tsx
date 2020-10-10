@@ -4,8 +4,8 @@ interface PopListProps {
 export default function PopList({ items }: PopListProps) {
   return (
     <ul className="pop-list">
-      {items.map((i) => (
-        <li>{i}</li>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
       ))}
     </ul>
   );

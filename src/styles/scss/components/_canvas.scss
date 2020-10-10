@@ -1,10 +1,9 @@
 #intro-canvas {
-  background: $dark-bg;
+  background: $dark;
   width: 100%;
   height: 50vh;
   position: absolute;
   z-index: 0;
-  cursor: none;
   @include breakpoint-sm {
     height: 100vh;
   }

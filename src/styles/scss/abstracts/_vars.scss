@@ -1,25 +1,17 @@
-$muted: #888;
-$dark-bg: #1d2d50;
-$dark: #1d2d50;
-$primary: #fcdab7;
+// THEME
+$dark: #132743;
+$primary: #edc988;
 $secondary: #f8efd4;
+//$accent: #d7385e;
 $accent: #1e5f74;
+$text: #333;
+$muted: #888;
+$bg: whitesmoke;
 
-$tertiary: #bc8fbc;
-$bg: #eee;
-//$dark: #333;
-$text: #666;
-// BOOTSTRAP COLOURS
-$bs-primary: #0275d8;
-$bs-success: #5cb85c;
-$bs-info: #5bc0de;
-$bs-warning: #f0ad4e;
-$bs-danger: #d9534f;
 // BREAKPOINTS
 $breakpoint-xl: 1440px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 800px;
 $breakpoint-sm: 500px;
 $breakpoint-xs: 320px;
-//
 $container: 1280px;

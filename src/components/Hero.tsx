@@ -1,3 +1,5 @@
+import Head from "next/head";
+import styles from "./hero.module.scss";
 interface HeroProps {
   title?: string;
   subtitle?: string;
@@ -5,12 +7,16 @@ interface HeroProps {
 export default function Hero({ title, subtitle }: HeroProps) {
   return (
     <>
-      <canvas id="intro-canvas"></canvas>
-      <div className="title-container">
-        <div className="canvas-img"></div>
-        <div className="canvas-text">
-          <h1 className="canvas-title">{title}</h1>
-          <h1 className="canvas-subtitle">{subtitle}</h1>
+      <div className={styles.background}>
+        {/* <img src="/images/ep.png" alt="background" /> */}
+      </div>
+      <div className={styles.heroLayout}>
+        <div className={styles.profilePicture}>
+          <img src="/images/profile.jpg" alt="profile picture" />
+        </div>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.subtitle}>{subtitle}</h1>
         </div>
       </div>
     </>
