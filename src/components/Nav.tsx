@@ -1,6 +1,9 @@
-import styles from "../styles/nav.module.scss";
 import Link from "next/link";
 import Head from "next/head";
+
+function cn(...classNames: string[]) {
+  return classNames.join(" ");
+}
 
 interface NavProps {
   title: string;
@@ -16,18 +19,21 @@ export default function Nav({ title, links }: NavProps) {
           key="fa"
         />
       </Head>
-      <nav className={styles.nav}>
-        <div className={styles.navLeft}>
-          <h1 className={styles.title}>{title}</h1>
-          <ul className={styles.links}>
+      <nav
+        className={`shadow-md fixed z-10 flex justify-between w-screen p-3 bg-light`}
+      >
+        <div className="flex ml-4">
+          <h1 className="box-border pr-4 text-xl font-normal uppercase border-r border-black md:hidden h-100 dark">
+            {title}
+          </h1>
+          <ul className="ml-4 sm:ml-0">
             {links.map((link) => (
-              <li className={styles.navElement} key={link.name}>
+              <li className="inline mr-6 muted" key={link.name}>
                 <Link href={link.route}>
                   <a
-                    className={[
-                      styles.navLink,
-                      link.active && styles.active,
-                    ].join(" ")}
+                    className={`${
+                      link.active ? "accent" : "muted"
+                    } text-lg text-serif hover:text-accent transition-colors duration-150`}
                   >
                     {link.name}
                   </a>
@@ -35,28 +41,6 @@ export default function Nav({ title, links }: NavProps) {
               </li>
             ))}
           </ul>
-        </div>
-        <div className={styles.navRight}>
-          <a
-            className={styles.socialIcon}
-            href="https://github.com/cristobalsalazar"
-          >
-            <i
-              id="github"
-              className={`${styles.github} fa fa-github-square`}
-              aria-hidden="true"
-            ></i>
-          </a>
-          <a
-            className={styles.socialIcon}
-            href="https://www.linkedin.com/in/cristobal-salazar-849960164/"
-          >
-            <i
-              id="facebook"
-              className={`${styles.linkedIn} fa fa-linkedin-square`}
-              aria-hidden="true"
-            ></i>
-          </a>
         </div>
       </nav>
     </>

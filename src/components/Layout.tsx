@@ -33,9 +33,14 @@ export default function Layout(props: LayoutProps) {
             route: "/blog",
             active: props.activeLinkName === "Blog",
           },
+          {
+            name: "Contact",
+            route: "/contact",
+            active: props.activeLinkName === "Contact",
+          },
         ]}
       />
-      {props.children}
+      <div className="bg-light">{props.children}</div>
       <Footer
         sections={[
           {

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import BasePage from "../components/BasePage";
 import Education from "../components/Education";
 import Hero from "../components/Hero";
@@ -13,12 +12,12 @@ export default function Index() {
       description="Personal website for Cristobal Salazar"
     >
       <Layout activeLinkName="About">
-        <header id="intro">
+        <header className="relative z-0 mb-32 sm:h-screen h-screen/2">
           <Hero title="Cristobal Salazar" subtitle="Full-Stack Web Developer" />
         </header>
 
-        <div className="layout">
-          <main className="main" role="main">
+        <div className="block max-w-6xl mx-auto overflow-x-hidden xl:max-w-4xl lg:max-w-3xl">
+          <main className="min-h-screen mb-32" role="main">
             <Welcome />
             <Skills />
             <Education />

@@ -1,16 +1,8 @@
 .heading {
-  display: inline-block;
   font-size: 2rem;
-  font-weight: normal;
-  font-family: "David Libre";
-  text-transform: capitalize;
-
-  margin: 2rem 0;
-  color: $accent;
-
   @media screen and (max-width: $breakpoint-sm) {
+    margin: 2rem 1rem;
     font-size: 1.1 * 2rem;
-    margin: 1rem 1rem;
     width: 100%;
   }
 }
