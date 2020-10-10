@@ -10,6 +10,7 @@ export default function Welcome(props: WelcomeProps) {
           <img
             src="/images/profile.jpg"
             className="object-cover w-64 h-64 mx-auto my-12 rounded-full"
+            alt="profile picture"
           />
         </div>
         <Text>
