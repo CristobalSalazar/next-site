@@ -1,5 +1,7 @@
-export default function Text({ children }: any) {
+export default function Text({ children, className }: any) {
   return (
-    <p className="w-full font-serif leading-loose text-gray-700">{children}</p>
+    <p className={`w-full leading-loose text-gray-700 ${className}`}>
+      {children}
+    </p>
   );
 }
