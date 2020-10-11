@@ -17,7 +17,7 @@ export default function Layout(props: LayoutProps) {
         <link rel="icon" type="image/png" href="/images/favicon.png" />
       </Head>
       <Nav
-        title="Cristobal Salazar"
+        title="CS"
         links={[
           {
             name: "About",

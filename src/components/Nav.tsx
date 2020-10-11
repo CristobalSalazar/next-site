@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { rgb2rgba, rgbaChangeAlpha } from "../utils/colors";
 
 interface NavProps {
   title: string;
@@ -7,14 +8,20 @@ interface NavProps {
 }
 export default function Nav({ title, links }: NavProps) {
   const navElement = useRef<HTMLElement>(null);
+  const navBrand = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    navElement.current.style.opacity = "0";
     const style = window.getComputedStyle(navElement.current);
-    console.log(style.backgroundColor);
+    const rgba = rgb2rgba(style.backgroundColor);
+    const newrgba = rgbaChangeAlpha(rgba, 0);
+    navElement.current.style.backgroundColor = newrgba;
+    // Scroll
     document.body.onscroll = (e) => {
       const bodyTop = document.body.getBoundingClientRect().top;
       const opacity = Math.min(0 - (bodyTop / window.innerHeight) * 2, 1);
-      navElement.current.style.opacity = opacity.toString();
+      const newrgba = rgbaChangeAlpha(rgba, opacity);
+      console.log(newrgba);
+      navElement.current.style.backgroundColor = newrgba;
     };
   }, []);
   return (
@@ -24,7 +31,10 @@ export default function Nav({ title, links }: NavProps) {
         className="fixed z-10 flex justify-between w-screen p-3 shadow-md bg-light"
       >
         <div className="flex ml-4">
-          <span className="box-border pr-4 font-normal border-r border-black font-cursive h-100 dark sm:hidden">
+          <span
+            ref={navBrand}
+            className="box-border pr-4 font-normal border-r border-black text-secondary font-cursive h-100 sm:hidden"
+          >
             {title}
           </span>
           <ul className="ml-4 sm:ml-0">
