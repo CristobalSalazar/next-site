@@ -28,16 +28,6 @@ export default function Layout(props: LayoutProps) {
             route: "/portfolio",
             active: props.activeLinkName === "Portfolio",
           },
-          {
-            name: "Blog",
-            route: "/blog",
-            active: props.activeLinkName === "Blog",
-          },
-          {
-            name: "Contact",
-            route: "/contact",
-            active: props.activeLinkName === "Contact",
-          },
         ]}
       />
       <div className="pt-12 bg-light">{props.children}</div>
