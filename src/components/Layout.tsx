@@ -14,6 +14,7 @@ export default function Layout(props: LayoutProps) {
           href="https://fonts.googleapis.com/css2?family=David+Libre&family=Playfair+Display&family=Sansita+Swashed&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
       </Head>
       <Nav
         title="Cristobal Salazar"
