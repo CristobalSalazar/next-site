@@ -47,7 +47,7 @@ export default function Portfolio() {
                 videoSrc="/videos/grm.m4v"
               />
               <Project
-                title="GIFFYCAT"
+                title="Giffycat"
                 description="
                       Giffycat is a social media front-end application that allows
                       users to like, favourite and comment on their favourite gifs.

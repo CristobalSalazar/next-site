@@ -1,3 +1,12 @@
+theme1 = {
+  dark: "#132743",
+  light: "whitesmoke",
+  primary: "#edc988",
+  secondary: "#f8efd4",
+  accent: "#d7385e",
+  muted: "#555",
+};
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -13,7 +22,14 @@ module.exports = {
       xl: { max: "1366px" },
     },
     fontFamily: {
-      serif: ["Georgia", "Times New Roman", "Times", "serif"],
+      serif: [
+        "Playfair Display",
+        "Georgia",
+        "Times New Roman",
+        "Times",
+        "serif",
+      ],
+      cursive: ["Sansita Swashed", "cursive"],
     },
     extend: {
       height: {
@@ -25,7 +41,7 @@ module.exports = {
         primary: "#edc988",
         secondary: "#f8efd4",
         accent: "#d7385e",
-        muted: "#666",
+        muted: "#555",
       },
     },
   },

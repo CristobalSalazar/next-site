@@ -20,9 +20,9 @@ export default function Hero({ title, subtitle }: HeroProps) {
           <h1 className="font-serif text-5xl font-normal text-light">
             {title}
           </h1>
-          <h1 className="font-serif text-3xl font-normal text-dark sm:text-primary">
+          <h2 className="font-cursive text-3xl font-normal text-dark sm:text-primary">
             {subtitle}
-          </h1>
+          </h2>
         </div>
       </div>
     </>

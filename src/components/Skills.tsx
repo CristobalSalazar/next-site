@@ -5,7 +5,7 @@ import SubSection from "./SubSection";
 interface SkillsProps {}
 export default function Skills() {
   return (
-    <Section title="skills">
+    <Section title="Skills">
       <div className="grid grid-cols-3 gap-4 lg:grid-cols-2 sm:block">
         <SubSection title="Frameworks and Libs">
           <PopList

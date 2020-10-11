@@ -4,7 +4,7 @@ import Section from "./Section";
 interface EducationProps {}
 export default function Education() {
   return (
-    <Section title="education">
+    <Section title="Education">
       <PopList
         items={[
           "Certificate in Web Development, University of Toronto",

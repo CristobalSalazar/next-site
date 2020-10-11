@@ -4,15 +4,8 @@ import Text from "./Text";
 interface WelcomeProps {}
 export default function Welcome(props: WelcomeProps) {
   return (
-    <Section title="welcome">
+    <Section title="Welcome">
       <div className="relative grid grid-cols-2 gap-12 mb-8 overflow-x-hidden rounded md:mb-0 md:block">
-        <div className="hidden md:block">
-          <img
-            src="/images/profile.jpg"
-            className="object-cover w-64 h-64 mx-auto my-12 rounded-full"
-            alt="profile picture"
-          />
-        </div>
         <Text>
           My love for software began while studying Audio production at Humber
           College, I started wondering how the technology all around me was
