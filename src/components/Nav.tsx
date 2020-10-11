@@ -8,18 +8,20 @@ interface NavProps {
 export default function Nav({ title, links }: NavProps) {
   const navElement = useRef<HTMLElement>(null);
   useEffect(() => {
+    navElement.current.style.opacity = "0";
+    const style = window.getComputedStyle(navElement.current);
+    console.log(style.backgroundColor);
     document.body.onscroll = (e) => {
-      console.log(window.innerHeight); // 100vh
-      // our opacity is 0 to 1;
-      console.log("nav", navElement.current.getBoundingClientRect().top);
-      console.log("body", document.body.getBoundingClientRect().top);
+      const bodyTop = document.body.getBoundingClientRect().top;
+      const opacity = Math.min(0 - (bodyTop / window.innerHeight) * 2, 1);
+      navElement.current.style.opacity = opacity.toString();
     };
   }, []);
   return (
     <>
       <nav
         ref={navElement}
-        className={`shadow-md fixed z-10 flex justify-between w-screen p-3 bg-light`}
+        className="fixed z-10 flex justify-between w-screen p-3 shadow-md bg-light"
       >
         <div className="flex ml-4">
           <span className="box-border pr-4 font-normal border-r border-black font-cursive h-100 dark sm:hidden">

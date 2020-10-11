@@ -10,7 +10,7 @@ export default function Portfolio() {
       description="A Project showcase by Cristobal Salazar"
     >
       <Layout activeLinkName="Portfolio">
-        <main className="container py-6 mx-auto sm:px-3" role="main">
+        <main className="container pt-24 pb-12 mx-auto sm:px-3" role="main">
           <PortfolioSection title="Web Apps">
             <Project
               title="Event.io"

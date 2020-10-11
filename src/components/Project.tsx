@@ -15,7 +15,7 @@ export default function Project({
   return (
     <div className="grid w-full grid-cols-2 gap-24 mb-12 text-left md:block sm:block">
       <div className="w-full">
-        <p className="mb-4 text-2xl font-cursive text-accent">{title}</p>
+        <p className="mb-6 text-2xl font-cursive text-accent">{title}</p>
         <Text>{description}</Text>
         <a
           className="block mt-4 text-accent hover:underline md:mb-12 sm:mb-12"
