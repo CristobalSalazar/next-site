@@ -10,7 +10,7 @@ export default function Footer({ sections }: FooterProps) {
       <ul className="flex w-full max-w-4xl m-auto justify-evenly">
         {sections.map((s) => (
           <li className="sm:my-4" key={s.name}>
-            <h5 className="mb-4 text-2xl font-normal sm:text-xl sm:mb-3 text-light">
+            <h5 className="mb-4 text-2xl font-cursive sm:text-xl sm:mb-3 text-light">
               {s.name}
             </h5>
             <nav>
