@@ -6,17 +6,19 @@ interface FooterProps {
 }
 export default function Footer({ sections }: FooterProps) {
   return (
-    <footer className="flex w-full min-h-screen bg-dark sm:mt-0">
+    <footer className="flex w-full min-h-screen bg-dark">
       <ul className="flex w-full max-w-4xl m-auto justify-evenly">
         {sections.map((s) => (
           <li className="sm:my-4" key={s.name}>
-            <h5 className="mb-4 text-2xl font-normal text-light">{s.name}</h5>
+            <h5 className="mb-4 text-2xl font-normal sm:text-xl sm:mb-3 text-light">
+              {s.name}
+            </h5>
             <nav>
               <ul>
                 {s.links.map((link, i) => (
-                  <li className="mb-4" key={i}>
+                  <li className="mb-2" key={i}>
                     <Link href={link.href}>
-                      <a className="cursor-pointer text-primary hover:text-light">
+                      <a className="font-thin transition-colors duration-300 cursor-pointer text-primary hover:text-secondary">
                         {link.name}
                       </a>
                     </Link>

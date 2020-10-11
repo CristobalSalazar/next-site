@@ -6,42 +6,25 @@ interface SkillsProps {}
 export default function Skills() {
   return (
     <Section title="Skills">
-      <div className="grid grid-cols-3 gap-4 lg:grid-cols-2 sm:block">
-        <SubSection title="Frameworks and Libs">
-          <PopList
-            items={[
-              "Node js",
-              "Next js",
-              "Nest js",
-              "Electron",
-              "React",
-              "React Native",
-              "Flutter",
-              "Tailwind",
-              "Bootstrap",
-              "jQuery",
-            ]}
-          />
-        </SubSection>
-        <SubSection title="Languages and Tools">
+      <div className="grid grid-cols-4 lg:grid-cols-2 lg:gap-3 md:grid-cols-2 md:gap-1 sm:block sm:gap-0">
+        <SubSection title="Programming Languages">
           <PopList
             items={[
               "Typescript / Javascript",
+              "CSS / SASS / LESS",
               "C#",
               "Dart",
-              "CSS / SASS / LESS",
-              "HTML",
-              "Docker",
-              "Mongodb",
-              "MySQL",
-              "Firebase",
-              "Bash",
-              "AWS",
             ]}
           />
         </SubSection>
-        <SubSection title="Spoken Languages">
-          <PopList items={["English", "French", "Spanish"]} />
+        <SubSection title="Frameworks/Tools">
+          <PopList items={["Node js", "React", "React Native", "Flutter"]} />
+        </SubSection>
+        <SubSection title="Databases">
+          <PopList items={["MongoDb", "MySQL", "Firebase"]} />
+        </SubSection>
+        <SubSection title="DevOps">
+          <PopList items={["Docker", "AWS", "Bash/Unix"]} />
         </SubSection>
       </div>
     </Section>

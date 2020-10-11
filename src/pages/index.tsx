@@ -12,17 +12,14 @@ export default function Index() {
       description="Personal website for Cristobal Salazar"
     >
       <Layout activeLinkName="About">
-        <header className="relative z-0 mb-32 sm:h-screen h-screen/2">
+        <header className="relative z-0 mb-32 sm:mb-0 sm:h-screen h-screen/2">
           <Hero title="Cristobal Salazar" subtitle="Full-Stack Web Developer" />
         </header>
-
-        <div className="block max-w-6xl mx-auto overflow-x-hidden xl:max-w-4xl lg:max-w-3xl">
-          <main role="main">
-            <Welcome />
-            <Skills />
-            <Education />
-          </main>
-        </div>
+        <main className="container pb-12 mx-auto sm:px-3" role="main">
+          <Welcome />
+          <Skills />
+          <Education />
+        </main>
       </Layout>
     </BasePage>
   );

@@ -7,6 +7,17 @@ theme1 = {
   muted: "#555",
 };
 
+const breakpoints = {
+  sm: 500,
+  md: 800,
+  lg: 1080,
+  xl: 1366,
+};
+
+function px(num) {
+  return num + "px";
+}
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -15,11 +26,10 @@ module.exports = {
   purge: [],
   theme: {
     screens: {
-      xs: { max: "500px" },
-      sm: { max: "500px" },
-      md: { max: "800px" },
-      lg: { max: "1080px" },
-      xl: { max: "1366px" },
+      sm: { max: px(breakpoints.sm) },
+      md: { min: px(breakpoints.sm + 1), max: px(breakpoints.md) },
+      lg: { min: px(breakpoints.md + 1), max: px(breakpoints.lg) },
+      xl: { min: px(breakpoints.lg + 1), max: px(breakpoints.xl) },
     },
     fontFamily: {
       serif: [

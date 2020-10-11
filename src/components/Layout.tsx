@@ -40,7 +40,7 @@ export default function Layout(props: LayoutProps) {
           },
         ]}
       />
-      <div className="bg-light">{props.children}</div>
+      <div className="pt-12 bg-light">{props.children}</div>
       <Footer
         sections={[
           {

@@ -22,7 +22,7 @@ export default function Nav({ title, links }: NavProps) {
         className={`shadow-md fixed z-10 flex justify-between w-screen p-3 bg-light`}
       >
         <div className="flex ml-4">
-          <span className="font-cursive box-border pr-4 font-normal border-r border-black md:hidden h-100 dark">
+          <span className="box-border pr-4 font-normal border-r border-black font-cursive h-100 dark sm:hidden">
             {title}
           </span>
           <ul className="ml-4 sm:ml-0">
@@ -31,8 +31,8 @@ export default function Nav({ title, links }: NavProps) {
                 <Link href={link.route}>
                   <a
                     className={`${
-                      link.active ? "text-accent" : "text-muted"
-                    } font-serif hover:text-accent transition-colors duration-150`}
+                      link.active ? "text-accent" : "text-dark"
+                    } hover:text-accent transition-colors duration-300`}
                   >
                     {link.name}
                   </a>

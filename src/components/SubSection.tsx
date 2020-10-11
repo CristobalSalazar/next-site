@@ -5,9 +5,7 @@ interface SubSectionProps {
 export default function SubSection({ title, children }: SubSectionProps) {
   return (
     <div>
-      <h4 className="mb-8 text-lg text-center text-dark text-muted sm:text-left sm:my-6 sm:ml-4 sm:w-full">
-        {title}
-      </h4>
+      <h4 className="my-8 text-lg text-center text-muted sm:my-6">{title}</h4>
       {children}
     </div>
   );
