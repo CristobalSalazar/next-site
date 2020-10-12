@@ -8,6 +8,8 @@ import { useIntersection } from "react-use";
 import { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import ScrollFadeOut from "../components/ScrollFadeOut";
+import SiteFooter from "../components/SiteFooter";
+import ScrollFadeIn from "../components/ScrollFadeIn";
 
 export default function Index() {
   return (
@@ -36,6 +38,9 @@ export default function Index() {
           </div>
         </main>
       </Layout>
+      <ScrollFadeIn>
+        <SiteFooter />
+      </ScrollFadeIn>
     </BasePage>
   );
 }
