@@ -1,34 +1,18 @@
 import { useEffect, useRef } from "react";
+import useScroll from "../hooks/useScroll";
 
-interface ScrollFadeOutProps {
-  className?: string;
-  factor?: number;
-}
-const ScrollFadeIn: React.FC<ScrollFadeOutProps> = ({
-  children,
-  className,
-  factor = 1,
-}) => {
+interface ScrollFadeOutProps {}
+const ScrollFadeIn: React.FC<ScrollFadeOutProps> = ({ children }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  function handleScroll() {
+  useScroll((_) => {
     const rect = ref.current.getBoundingClientRect();
-    ref.current.style.opacity = (
-      1 -
-      Math.max(rect.top / rect.height, 0) / factor
-    ).toString();
-  }
+    const opacity = Math.max(1 - rect.top / rect.height, 0);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    ref.current.style.opacity = opacity.toString();
   });
 
-  return (
-    <div className={className} ref={ref}>
-      {children}
-    </div>
-  );
+  return <div ref={ref}>{children}</div>;
 };
 
 export default ScrollFadeIn;
