@@ -4,13 +4,13 @@ interface PopListProps {
 }
 export default function PopList({ items, showAnimation = true }: PopListProps) {
   return (
-    <ul className="w-full mx-auto rounded-lg overflow-hidden sm:m-0 shadow-lg border border-primary">
+    <ul className="w-full mx-auto overflow-hidden border rounded-lg shadow-lg sm:m-0">
       {items.map((item, index) => (
         <li
           className={`p-6 text-left ${
             index % 2 === 0
-              ? "bg-light text-dark hover:bg-secondary"
-              : "bg-dark text-light hover:bg-gray-700"
+              ? "bg-secondary text-dark hover:bg-primary"
+              : "bg-dark text-secondary hover:bg-gray-600"
           } md:rounded transition-colors duration-300`}
           key={index}
         >
