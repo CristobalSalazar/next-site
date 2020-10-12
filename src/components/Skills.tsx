@@ -6,7 +6,7 @@ interface SkillsProps {}
 export default function Skills() {
   return (
     <Section title="Skills">
-      <div className="grid grid-cols-4 lg:grid-cols-2 lg:gap-3 md:grid-cols-2 md:gap-1 sm:block sm:gap-0">
+      <div className="grid grid-cols-2 gap-12 lg:grid-cols-2 lg:gap-3 md:grid-cols-2 md:gap-1 sm:block sm:gap-0">
         <SubSection title="Programming Languages">
           <PopList
             items={[

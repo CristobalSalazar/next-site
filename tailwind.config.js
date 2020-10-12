@@ -4,7 +4,7 @@ theme1 = {
   primary: "#edc988",
   secondary: "#f8efd4",
   accent: "#d7385e",
-  muted: "#555",
+  muted: "#ddd",
 };
 
 const breakpoints = {
@@ -32,16 +32,14 @@ module.exports = {
       xl: { min: px(breakpoints.lg + 1), max: px(breakpoints.xl) },
     },
     fontFamily: {
-      serif: [
-        "Playfair Display",
-        "Georgia",
-        "Times New Roman",
-        "Times",
-        "serif",
-      ],
+      serif: ["David Libre", "Georgia", "Times New Roman", "Times", "serif"],
       cursive: ["Sansita Swashed", "cursive"],
+      sans: ["Inter", "sans"],
     },
     extend: {
+      width: {
+        "screen/2": "50vw",
+      },
       height: {
         "screen/2": "50vh",
       },
@@ -51,7 +49,7 @@ module.exports = {
         primary: "#edc988",
         secondary: "#f8efd4",
         accent: "#d7385e",
-        muted: "#555",
+        muted: "#aaa",
       },
     },
   },
