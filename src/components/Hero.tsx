@@ -1,22 +1,10 @@
-import { useSpring, animated } from "react-spring";
 interface HeroProps {
   title?: string;
   subtitle?: string;
 }
-export default function Hero({ title, subtitle }: HeroProps) {
-  const titleProps = useSpring({
-    config: {
-      tension: 75,
-    },
-    from: {
-      opacity: 0,
-      transform: "translateX(-1rem)",
-    },
-    to: {
-      opacity: 1,
-      transform: "translateX(0)",
-    },
-  });
+const Hero: React.FC<HeroProps> = ({ title, subtitle }) => {
+  const BASE_TENSION = 90;
+
   return (
     <>
       <div className="absolute z-0 w-full pointer-events-none from-accent to-dark bg-gradient-to-t sm:h-screen h-screen/2" />
@@ -27,20 +15,16 @@ export default function Hero({ title, subtitle }: HeroProps) {
           alt="profile picture"
         />
         <div className="flex flex-col h-64 pointer-events-auto justify-evenly sm:m-0">
-          <animated.h1
-            style={titleProps}
-            className="text-5xl font-normal font-cursive md:text-4xl sm:text-4xl text-light"
-          >
+          <h1 className="text-5xl font-normal font-serif md:text-4xl sm:text-4xl text-light">
             {title}
-          </animated.h1>
-          <animated.h2
-            style={titleProps}
-            className="text-3xl font-normal font-cursive text-dark sm:text-primary md:text-2xl sm:text-2xl"
-          >
+          </h1>
+          <h2 className="text-3xl font-normal font-cursive text-dark sm:text-primary md:text-2xl sm:text-2xl">
             {subtitle}
-          </animated.h2>
+          </h2>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Hero;
