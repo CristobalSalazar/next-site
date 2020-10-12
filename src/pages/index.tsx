@@ -26,7 +26,7 @@ export default function Index() {
             />
           </header>
         </ScrollFadeOut>
-        <main className="container pb-16 mx-auto" role="main">
+        <main className="container pb-16 mx-auto sm:pb-0" role="main">
           <div className="" id="welcome">
             <Welcome />
           </div>
