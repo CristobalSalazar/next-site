@@ -25,9 +25,15 @@ export default function Index() {
           </header>
         </ScrollFadeOut>
         <main className="container pb-16 mx-auto" role="main">
-          <Welcome />
-          <Skills />
-          <Education />
+          <div className="" id="welcome">
+            <Welcome />
+          </div>
+          <div className="" id="skills">
+            <Skills />
+          </div>
+          <div className="" id="education">
+            <Education />
+          </div>
         </main>
       </Layout>
     </BasePage>
