@@ -23,7 +23,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: ["./components/*/**.tsx", "./pages/*/**.tsx"],
   theme: {
     screens: {
       sm: { max: px(breakpoints.sm) },
