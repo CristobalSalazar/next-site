@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import Nav from "./Nav";
 import Head from "next/head";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 interface LayoutProps {
   activeLinkName: string;
@@ -11,13 +12,13 @@ export default function Layout(props: LayoutProps) {
     <>
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=David+Libre&family=Playfair+Display&family=Sansita+Swashed&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter&David+Libre&family=Playfair+Display&family=Sansita+Swashed&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" type="image/png" href="/images/favicon.png" />
       </Head>
       <Nav
-        title="CS"
+        title="Cristobal Salazar"
         links={[
           {
             name: "About",
