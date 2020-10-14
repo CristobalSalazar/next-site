@@ -61,7 +61,6 @@ export const getStaticProps: GetStaticProps = async () => {
     }
     return {
       props: data.data,
-      revalidate: 60,
     };
   } catch (err) {
     console.error("Error", err);
