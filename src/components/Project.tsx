@@ -13,14 +13,16 @@ export default function Project({
   gitLink,
 }: ProjectProps) {
   return (
-    <div className="grid w-full grid-cols-2 gap-24 mb-12 text-left md:block sm:block">
+    <div className="grid w-full grid-cols-2 gap-24 p-3 mb-12 text-left md:block sm:block">
       <div className="w-full">
-        <p className="mb-6 text-2xl font-cursive text-primary">{title}</p>
+        <p className="mb-6 text-2xl underline font-cursive text-accent">
+          {title}
+        </p>
         <Text>
-          <div className="text-secondary">{description}</div>
+          <div className="text-dark">{description}</div>
         </Text>
         <a
-          className="block mt-4 font-sans text-sm italic font-normal text-blue-200 underline md:mb-12 sm:mb-12"
+          className="block mt-4 font-sans text-sm italic font-normal underline text-dark md:mb-12 sm:mb-12"
           href={gitLink}
         >
           View on Github
