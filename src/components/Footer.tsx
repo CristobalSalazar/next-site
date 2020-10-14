@@ -6,7 +6,7 @@ interface FooterProps {
 }
 export default function Footer({ sections }: FooterProps) {
   return (
-    <footer className="flex w-full min-h-screen from-accent to-dark bg-gradient-to-b">
+    <footer className="flex w-full min-h-screen">
       <ul className="flex w-full max-w-4xl m-auto justify-evenly">
         {sections.map((s) => (
           <li className="sm:my-4" key={s.name}>
