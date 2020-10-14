@@ -50,7 +50,9 @@ const Index: React.FC<IndexProps> = ({ about }) => (
       </main>
     </Layout>
     <ScrollFadeIn>
-      <SiteFooter />
+      <div className="from-accent to-dark bg-gradient-to-b">
+        <SiteFooter />
+      </div>
     </ScrollFadeIn>
   </BasePage>
 );

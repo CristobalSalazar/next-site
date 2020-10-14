@@ -28,9 +28,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ about, projects }) => {
       description="A Project showcase by Cristobal Salazar"
     >
       <ProfileNav title={about.title} activeLinkName="Portfolio" />
-      <Layout>
-        {projects.length > 0 && (
-          <div className="from-accent to-dark bg-gradient-to-t">
+      <div className="bg-light">
+        <Layout>
+          {projects.length > 0 && (
             <main className="container pt-24 pb-12 mx-auto sm:px-3" role="main">
               {projects.map((project) => (
                 <Project
@@ -42,10 +42,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ about, projects }) => {
                 />
               ))}
             </main>
-          </div>
-        )}
-      </Layout>
-      <SiteFooter />
+          )}
+        </Layout>
+        <div className="bg-dark">
+          <SiteFooter />
+        </div>
+      </div>
     </BasePage>
   );
 };
