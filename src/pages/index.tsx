@@ -1,46 +1,74 @@
 import BasePage from "../components/BasePage";
 import Education from "../components/Education";
+import { Paragraph, SkillSet } from "../dto/text.dto";
+import { GetStaticProps } from "next";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
-import Skills from "../components/Skills";
-import Welcome from "../components/Welcome";
-import { useIntersection } from "react-use";
-import { useRef } from "react";
-import { useSpring, animated } from "react-spring";
+import ScrollFadeIn from "../components/ScrollFadeIn";
 import ScrollFadeOut from "../components/ScrollFadeOut";
 import SiteFooter from "../components/SiteFooter";
-import ScrollFadeIn from "../components/ScrollFadeIn";
+import Skills from "../components/Skills";
+import Welcome from "../components/Welcome";
+import { aboutQuery } from "../graphql/queries";
+import { useGraphQl } from "../hooks/useGraphQl";
+import { BACKEND_URL } from "../config";
+import ProfileNav from "../components/ProfileNav";
 
-export default function Index() {
-  return (
-    <BasePage
-      title="Cristobal Salazar"
-      description="Personal website for Cristobal Salazar"
-    >
-      <Layout activeLinkName="About">
-        <ScrollFadeOut>
-          <header className="relative z-0 mb-32 sm:mb-0 sm:h-screen h-screen/2">
-            <Hero
-              title="Cristobal Salazar"
-              subtitle="Full-Stack Web Developer"
-            />
-          </header>
-        </ScrollFadeOut>
-        <main className="container pb-16 mx-auto sm:pb-0" role="main">
-          <div className="" id="welcome">
-            <Welcome />
-          </div>
-          <div className="" id="skills">
-            <Skills />
-          </div>
-          <div className="" id="education">
-            <Education />
-          </div>
-        </main>
-      </Layout>
-      <ScrollFadeIn>
-        <SiteFooter />
-      </ScrollFadeIn>
-    </BasePage>
-  );
+interface IndexProps {
+  about?: {
+    title: string;
+    subtitle: string;
+    paragraphs: Paragraph[];
+    education: Paragraph[];
+    skillsets: SkillSet[];
+    profile_pic: { url: string };
+  };
 }
+const Index: React.FC<IndexProps> = ({ about }) => (
+  <BasePage title={about?.title} description={about?.subtitle}>
+    <ProfileNav title={about.title} activeLinkName="About" />
+    <Layout>
+      <ScrollFadeOut>
+        <header className="relative z-0 mb-32 sm:mb-0 sm:h-screen h-screen/2">
+          <Hero
+            title={about.title}
+            subtitle={about.subtitle}
+            imgsrc={BACKEND_URL + about.profile_pic.url}
+          />
+        </header>
+      </ScrollFadeOut>
+      <main className="container pb-16 mx-auto sm:pb-0" role="main">
+        <div className="" id="welcome">
+          <Welcome paragraphs={about.paragraphs.map((p) => p.content)} />
+        </div>
+        <div className="" id="skills">
+          <Skills skillsets={about.skillsets} />
+        </div>
+        <div className="" id="education">
+          <Education items={about.education.map((e) => e.content)} />
+        </div>
+      </main>
+    </Layout>
+    <ScrollFadeIn>
+      <SiteFooter />
+    </ScrollFadeIn>
+  </BasePage>
+);
+export default Index;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const graphql = useGraphQl();
+  try {
+    const res = await graphql.query(aboutQuery);
+    const data: { errors: any[]; data: any } = await res.json();
+    if (data.errors) {
+      throw data.errors.map((e) => e.message);
+    }
+    return {
+      props: data.data,
+      revalidate: 60,
+    };
+  } catch (err) {
+    console.error("Error", err);
+  }
+};

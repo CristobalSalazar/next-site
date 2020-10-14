@@ -9,14 +9,7 @@ const SiteFooter = () => (
           { name: "Welcome", href: "/#welcome" },
           { name: "Skills", href: "/#skills" },
           { name: "Education", href: "/#education" },
-        ],
-      },
-      {
-        name: "Portfolio",
-        links: [
-          { name: "Web", href: "portfolio#web" },
-          { name: "Unity", href: "portfolio/#unity" },
-          { name: "Console", href: "portfolio/#console" },
+          { name: "Portfolio", href: "/portfolio" },
         ],
       },
       {
