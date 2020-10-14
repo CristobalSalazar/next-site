@@ -7,7 +7,7 @@ interface NavProps {
 export default function Nav({ title, links }: NavProps) {
   return (
     <>
-      <nav className="fixed z-10 flex w-screen p-3 bg-transparent shadow-md bg-light">
+      <nav className="fixed z-10 flex w-screen p-3 shadow-md bg-light">
         <span className="box-border flex-shrink-0 pr-4 text-dark font-cursive h-100 sm:hidden">
           {title}
         </span>
