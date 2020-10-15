@@ -11,10 +11,10 @@ import Skills from "../components/Skills";
 import Welcome from "../components/Welcome";
 import { aboutQuery } from "../graphql/queries";
 import { useGraphQl } from "../hooks/useGraphQl";
-import { BACKEND_URL } from "../config";
 import ProfileNav from "../components/ProfileNav";
+import { about } from "../utils/templateDefaults";
 
-interface IndexProps {
+export interface IndexProps {
   about?: {
     title: string;
     subtitle: string;
@@ -33,7 +33,7 @@ const Index: React.FC<IndexProps> = ({ about }) => (
           <Hero
             title={about.title}
             subtitle={about.subtitle}
-            imgsrc={BACKEND_URL + about.profile_pic.url}
+            imgsrc={about.profile_pic?.url}
           />
         </header>
       </ScrollFadeOut>
@@ -50,7 +50,7 @@ const Index: React.FC<IndexProps> = ({ about }) => (
       </main>
     </Layout>
     <ScrollFadeIn>
-      <div className="from-accent to-dark bg-gradient-to-b">
+      <div className="bg-dark">
         <SiteFooter />
       </div>
     </ScrollFadeIn>
@@ -59,6 +59,9 @@ const Index: React.FC<IndexProps> = ({ about }) => (
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
+  if (process.env.IS_TEMPLATE) {
+    return { props: about };
+  }
   const graphql = useGraphQl();
   try {
     const res = await graphql.query(aboutQuery);
