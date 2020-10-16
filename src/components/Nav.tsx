@@ -7,18 +7,18 @@ interface NavProps {
 export default function Nav({ title, links }: NavProps) {
   return (
     <>
-      <nav className="fixed z-10 flex w-screen p-3 shadow-md bg-light">
+      <nav className="fixed z-10 flex w-screen p-3 shadow bg-light">
         <span className="box-border flex-shrink-0 pr-4 font-cursive text-dark h-100 sm:hidden">
           {title}
         </span>
-        <ul className="flex w-full ml-4 sm:ml-0 sm:justify-around">
+        <ul className="flex w-full ml-4 text-sm sm:ml-0 sm:justify-around">
           {links.map((link) => (
             <li className="mr-6 sm:mr-0" key={link.name}>
               <Link href={link.route}>
                 <a
                   className={`${
-                    link.active ? "text-accent" : "text-dark"
-                  } hover:text-accent transition-colors duration-300`}
+                    link.active ? "text-accent underline" : "text-dark"
+                  } hover:text-secondary transition-colors duration-300`}
                 >
                   {link.name}
                 </a>

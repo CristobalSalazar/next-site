@@ -7,19 +7,13 @@ import { GetStaticProps } from "next";
 import { useGraphQl } from "../hooks/useGraphQl";
 import { portfolioQuery } from "../graphql/queries";
 import { BACKEND_URL } from "../config";
+import { Project as ProjectDto } from "../dto/text.dto";
 
 interface PortfolioProps {
   about: {
     title: string;
   };
-  projects: [
-    {
-      title: string;
-      description: string;
-      link: string;
-      files: [{ url: string }];
-    }
-  ];
+  projects: ProjectDto[];
 }
 const Portfolio: React.FC<PortfolioProps> = ({ about, projects }) => {
   return (

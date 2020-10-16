@@ -1,59 +1,66 @@
 import BasePage from "../components/BasePage";
-import Education from "../components/Education";
-import { Paragraph, SkillSet } from "../dto/text.dto";
 import { GetStaticProps } from "next";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
-import ScrollFadeIn from "../components/ScrollFadeIn";
 import ScrollFadeOut from "../components/ScrollFadeOut";
-import SiteFooter from "../components/SiteFooter";
-import Skills from "../components/Skills";
 import Welcome from "../components/Welcome";
 import { aboutQuery } from "../graphql/queries";
 import { useGraphQl } from "../hooks/useGraphQl";
-import ProfileNav from "../components/ProfileNav";
 import { about } from "../utils/templateDefaults";
+import { Project } from "../dto/text.dto";
 
 export interface IndexProps {
   about?: {
     title: string;
     subtitle: string;
-    paragraphs: Paragraph[];
-    education: Paragraph[];
-    skillsets: SkillSet[];
+    background_img: { url: string };
     profile_pic: { url: string };
+    slogan: string;
+    paragraph: string;
+    projects: Project[];
   };
 }
+
 const Index: React.FC<IndexProps> = ({ about }) => (
   <BasePage title={about?.title} description={about?.subtitle}>
-    <ProfileNav title={about.title} activeLinkName="About" />
     <Layout>
       <ScrollFadeOut>
-        <header className="relative z-0 mb-32 sm:mb-0 sm:h-screen h-screen/2">
+        <header className="relative z-0 h-screen mb-32 sm:mb-0 sm:h-screen bg-light">
           <Hero
             title={about.title}
             subtitle={about.subtitle}
-            imgsrc={about.profile_pic?.url}
+            imgsrc={about.background_img?.url}
           />
         </header>
       </ScrollFadeOut>
-      <main className="container pb-16 mx-auto sm:pb-0" role="main">
-        <div className="" id="welcome">
-          <Welcome paragraphs={about.paragraphs.map((p) => p.content)} />
-        </div>
-        <div className="" id="skills">
-          <Skills skillsets={about.skillsets} />
-        </div>
-        <div className="" id="education">
-          <Education items={about.education.map((e) => e.content)} />
-        </div>
+      <main className="mx-auto sm:pb-0" role="main">
+        <section
+          className="container flex flex-col justify-center h-screen m-auto"
+          id="welcome"
+        >
+          <Welcome
+            paragraph={about.paragraph}
+            slogan={about.slogan}
+            profilePicUrl={about.profile_pic.url}
+          />
+        </section>
+        <section className="from-dark to-accent bg-gradient-to-br">
+          <div
+            className="container grid min-h-screen grid-cols-3 gap-3 py-12 mx-auto"
+            id="projects"
+          >
+            {about.projects.map((p) => (
+              <div className="">
+                <img
+                  className="object-cover w-full h-64 rounded-lg"
+                  src={p.files[0].url}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
     </Layout>
-    <ScrollFadeIn>
-      <div className="bg-dark">
-        <SiteFooter />
-      </div>
-    </ScrollFadeIn>
   </BasePage>
 );
 export default Index;
@@ -66,12 +73,14 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const res = await graphql.query(aboutQuery);
     const data: { errors: any[]; data: any } = await res.json();
+
     if (data.errors) {
       throw data.errors.map((e) => e.message);
+    } else {
+      return {
+        props: data.data,
+      };
     }
-    return {
-      props: data.data,
-    };
   } catch (err) {
     console.error("Error", err);
   }
