@@ -26,31 +26,31 @@ export interface IndexProps {
 const Index: React.FC<IndexProps> = ({ about }) => {
   return (
     <BasePage title={about?.title} description={about?.subtitle}>
-      <ProfileNav title={about.title} activeLinkName="About" />
       <Layout>
-        <header className="bg-light">
-          <ScrollFadeOut className="relative z-0 h-screen sm:mb-0 sm:h-screen bg-light">
-            <Hero
-              title={about.title}
-              subtitle={about.subtitle}
-              imgsrc={about.background_img?.url}
-            />
-          </ScrollFadeOut>
-        </header>
-        <main className="mx-auto sm:pb-0" role="main">
-          <section id="welcome" className="bg-light">
-            <div className="container flex flex-col justify-center h-screen min-h-full py-12 m-auto">
-              <Welcome
-                paragraph={about.paragraph}
-                slogan={about.slogan}
-                profilePicUrl={about.profile_pic.url}
+        <main className="h-screen bg-light">
+          <section id="hero">
+            <ScrollFadeOut>
+              <Hero
+                title={about.title}
+                subtitle={about.subtitle}
+                imgsrc={about.background_img?.url}
               />
-            </div>
+            </ScrollFadeOut>
+          </section>
+          <section
+            id="welcome"
+            className="container flex flex-col justify-center min-h-full py-12 m-auto mx-auto bg-light"
+          >
+            <Welcome
+              paragraph={about.paragraph}
+              slogan={about.slogan}
+              profilePicUrl={about.profile_pic.url}
+            />
           </section>
           <ScrollFadeIn>
             <section
               id="project-reel"
-              className="from-dark to-accent bg-gradient-to-b"
+              className="relative h-screen bg-radial-primary bg-dark sm:bg-light"
             >
               <ProjectReel projects={about.projects} />
             </section>
