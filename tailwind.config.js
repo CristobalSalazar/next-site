@@ -18,6 +18,11 @@ module.exports = {
       width: {
         "screen/2": "50vw",
       },
+      minHeight: {
+        fit: "fit-content",
+        "max-content": "max-content",
+        "min-content": "min-content",
+      },
       height: {
         "screen/2": "50vh",
       },

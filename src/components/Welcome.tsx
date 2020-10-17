@@ -1,5 +1,4 @@
 import Button from "./Button";
-import Section from "./Section";
 import Text from "./Text";
 
 const Grid: React.FC = ({ children }) => (
@@ -18,21 +17,19 @@ const Welcome: React.FC<WelcomeProps> = ({
   slogan,
   paragraph,
 }) => (
-  <Section>
-    <Grid>
-      <img
-        className="object-cover w-64 h-64 mx-auto border rounded-full shadow-xl"
-        src={profilePicUrl}
-        alt="profile_pic"
-      />
-      <div className="col-span-2">
-        <h2 className="mb-3 text-3xl text-dark">{slogan}</h2>
-        <Text>{paragraph}</Text>
-        <div className="flex justify-end mt-6">
-          <Button>Contact Me</Button>
-        </div>
+  <Grid>
+    <img
+      className="object-cover w-64 h-64 mx-auto border rounded-full shadow-xl border-dark"
+      src={profilePicUrl}
+      alt="profile_pic"
+    />
+    <div className="col-span-2">
+      <h2 className="mb-3 text-4xl text-dark">{slogan}</h2>
+      <Text>{paragraph}</Text>
+      <div className="flex justify-end mt-6">
+        <Button>Contact Me</Button>
       </div>
-    </Grid>
-  </Section>
+    </div>
+  </Grid>
 );
 export default Welcome;

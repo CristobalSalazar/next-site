@@ -7,8 +7,8 @@ interface NavProps {
 export default function Nav({ title, links }: NavProps) {
   return (
     <>
-      <nav className="fixed z-10 flex w-screen p-3 shadow bg-light">
-        <span className="box-border flex-shrink-0 pr-4 font-cursive text-dark h-100 sm:hidden">
+      <nav className="fixed flex w-screen p-3">
+        <span className="box-border flex-shrink-0 pr-4 font-serif text-lg font-bold text-black h-100 sm:hidden">
           {title}
         </span>
         <ul className="flex w-full ml-4 text-sm sm:ml-0 sm:justify-around">
@@ -18,7 +18,7 @@ export default function Nav({ title, links }: NavProps) {
                 <a
                   className={`${
                     link.active ? "text-accent underline" : "text-dark"
-                  } hover:text-secondary transition-colors duration-300`}
+                  } hover:text-black transition-colors duration-300`}
                 >
                   {link.name}
                 </a>

@@ -9,7 +9,8 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, imgsrc }) => (
     <div className="absolute z-10 flex items-center justify-center w-full h-screen pointer-events-none">
       {imgsrc && (
         <img
-          className="absolute top-0 left-0 z-0 object-cover object-center w-screen h-screen border shadow-xl opacity-50 border-dark md:w-48 md:h-48 sm:rounded-none sm:m-0 md:mr-3"
+          style={{ filter: "grayscale(100%)" }}
+          className="absolute top-0 left-0 z-0 object-cover object-center w-screen h-screen border shadow-xl opacity-50 top-32 border-dark md:w-48 md:h-48 sm:rounded-none sm:m-0 md:mr-3"
           src={imgsrc}
           alt="profile picture"
         />
