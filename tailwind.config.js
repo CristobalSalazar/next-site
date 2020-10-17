@@ -8,6 +8,9 @@ module.exports = {
   },
   purge: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
   theme: {
+    linearGradientColors: (theme) => theme("colors"),
+    radialGradientColors: (theme) => theme("colors"),
+    conicGradientColors: (theme) => theme("colors"),
     screens: generateScreens(defaultBreakpoints),
     fontFamily: {
       serif: ["David Libre", "Georgia", "Times New Roman", "Times", "serif"],
@@ -30,5 +33,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require("tailwindcss-gradients"), require("@tailwindcss/ui")],
 };
