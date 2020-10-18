@@ -2,13 +2,18 @@ export const aboutQuery = `
 {
   about {
     title
+    my_email
     subtitle
-    paragraphs { content }
-    education { content }
+    paragraph
+    slogan 
     profile_pic { url }
-    skillsets {
+    background_img { url }
+    featured_project { files { url } }
+    projects {
       title
-      skills { content }
+      files {
+        url
+      }
     }
   }
 }`;

@@ -5,7 +5,7 @@ interface HeroProps {
 }
 const Hero: React.FC<HeroProps> = ({ title, subtitle, imgsrc }) => (
   <>
-    <div className="z-0 w-full h-screen pointer-events-none bg-accent bg-gradient-tr-dark" />
+    <div className="z-0 w-full h-screen pointer-events-none bg-light bg-gradient-tr-dark" />
     <div className="absolute top-0 z-10 flex items-center justify-center w-full h-screen pointer-events-none">
       {imgsrc && (
         <img

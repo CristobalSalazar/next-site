@@ -1,14 +1,14 @@
 import { Project } from "../dto/text.dto";
-import { getRandomArrEl } from "../utils/array";
 
 export interface ProjectReelProps {
   projects: Project[];
+  featured: Project;
 }
-const ProjectReel: React.FC<ProjectReelProps> = ({ projects }) => (
+const ProjectReel: React.FC<ProjectReelProps> = ({ projects, featured }) => (
   <>
     <video
       style={{ filter: "grayscale(100%)" }}
-      src={getRandomArrEl(projects).files[0].url}
+      src={featured.files[0]?.url}
       autoPlay={true}
       muted={true}
       loop
@@ -26,17 +26,13 @@ const ProjectReel: React.FC<ProjectReelProps> = ({ projects }) => (
         id="projects"
       >
         {projects.map((p) => (
-          <li
-            className="z-20 rounded-lg cursor-pointer bg-primary"
-            key={p.title}
-          >
+          <li className="z-20 rounded-lg cursor-pointer bg-dark" key={p.title}>
             <video
-              style={{ filter: "grayscale(100%)" }}
               autoPlay={true}
               loop
-              className="object-cover w-full h-full transition-opacity duration-300 hover:opacity-50"
+              className="object-cover w-full h-full transition-opacity duration-300 hover:opacity-25"
               muted
-              src={p.files[0].url}
+              src={p.files[0]?.url || ""}
             />
           </li>
         ))}

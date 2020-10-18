@@ -11,11 +11,13 @@ interface WelcomeProps {
   profilePicUrl: string;
   slogan: string;
   paragraph: string;
+  email: string;
 }
 const Welcome: React.FC<WelcomeProps> = ({
   profilePicUrl,
   slogan,
   paragraph,
+  email,
 }) => (
   <Grid>
     <img
@@ -29,7 +31,9 @@ const Welcome: React.FC<WelcomeProps> = ({
       </h2>
       <Text>{paragraph}</Text>
       <div className="flex justify-end mt-6">
-        <Button>Contact Me</Button>
+        <Button>
+          <a href={`mailto:${email}`}>Contact Me</a>
+        </Button>
       </div>
     </div>
   </Grid>
