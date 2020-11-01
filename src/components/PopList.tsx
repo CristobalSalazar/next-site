@@ -4,7 +4,7 @@ interface PopListProps {
 }
 export default function PopList({ items, showAnimation = true }: PopListProps) {
   return (
-    <ul className="w-full mx-auto overflow-hidden border rounded-lg shadow-lg sm:m-0">
+    <ul className="w-full mx-auto overflow-hidden rounded-lg shadow-lg sm:m-0">
       {items.map((item, index) => (
         <li
           className={`p-6 text-left ${

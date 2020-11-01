@@ -1,22 +1,5 @@
-theme1 = {
-  dark: "#132743",
-  light: "whitesmoke",
-  primary: "#edc988",
-  secondary: "#f8efd4",
-  accent: "#d7385e",
-  muted: "#ddd",
-};
-
-const breakpoints = {
-  sm: 500,
-  md: 800,
-  lg: 1080,
-  xl: 1366,
-};
-
-function px(num) {
-  return num + "px";
-}
+const { defaultBreakpoints, generateScreens } = require("./breakpoints");
+const { defaultTheme } = require("./themes");
 
 module.exports = {
   future: {
@@ -25,12 +8,10 @@ module.exports = {
   },
   purge: ["./src/components/**/*.tsx", "./src/pages/**/*.tsx"],
   theme: {
-    screens: {
-      sm: { max: px(breakpoints.sm) },
-      md: { min: px(breakpoints.sm + 1), max: px(breakpoints.md) },
-      lg: { min: px(breakpoints.md + 1), max: px(breakpoints.lg) },
-      xl: { min: px(breakpoints.lg + 1), max: px(breakpoints.xl) },
-    },
+    linearGradientColors: (theme) => theme("colors"),
+    radialGradientColors: (theme) => theme("colors"),
+    conicGradientColors: (theme) => theme("colors"),
+    screens: generateScreens(defaultBreakpoints),
     fontFamily: {
       serif: ["David Libre", "Georgia", "Times New Roman", "Times", "serif"],
       cursive: ["Sansita Swashed", "cursive"],
@@ -40,19 +21,17 @@ module.exports = {
       width: {
         "screen/2": "50vw",
       },
+      minHeight: {
+        fit: "fit-content",
+        "max-content": "max-content",
+        "min-content": "min-content",
+      },
       height: {
         "screen/2": "50vh",
       },
-      colors: {
-        dark: "#132743",
-        light: "whitesmoke",
-        primary: "#edc988",
-        secondary: "#f8efd4",
-        accent: "#d7385e",
-        muted: "#aaa",
-      },
+      colors: defaultTheme,
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require("tailwindcss-gradients"), require("@tailwindcss/ui")],
 };

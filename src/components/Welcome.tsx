@@ -1,42 +1,41 @@
-import Section from "./Section";
+import Button from "./Button";
 import Text from "./Text";
 
-interface WelcomeProps {}
-export default function Welcome(props: WelcomeProps) {
-  return (
-    <Section title="Welcome!">
-      <div className="relative grid grid-cols-2 gap-12 mb-8 overflow-x-hidden rounded md:mb-0 md:block sm:block">
-        <Text>
-          My love for software began while studying at Humber College. Curious
-          to see what kind of software was powering the technology around me, I
-          quickly realized that I had the passion and drive to create my own
-          applications. After graduating, I enrolled in a certificate course at
-          the University of Toronto for Web Development. Being already
-          comfortable with C#, and having prior programming experience, it
-          didn’t take long before I added web technologies such as Javascript,
-          Typescript, React, Node.js, and many others to my skillset.
-        </Text>
-        <Text>
-          If you're in need of a developer on your team, or if you’re in need of
-          a website to promote your business, showcase your portfolio, or bring
-          your app ideas to life, feel free to
-          <strong>
-            <a
-              className="font-bold text-accent"
-              href="mailto:chris.salza@gmail.com"
-            >
-              {" "}
-              reach out to me.
-            </a>
-          </strong>
-          <br />
-          <br />
-          <em>
-            To view examples of my work created over the years. Please visit the
-            portfolio section.
-          </em>
-        </Text>
-      </div>
-    </Section>
-  );
+const Grid: React.FC = ({ children }) => (
+  <div className="grid grid-cols-3 gap-12 md:mb-0 md:block sm:block sm:mx-auto sm:px-3">
+    {children}
+  </div>
+);
+
+interface WelcomeProps {
+  profilePicUrl: string;
+  slogan: string;
+  paragraph: string;
+  email: string;
 }
+const Welcome: React.FC<WelcomeProps> = ({
+  profilePicUrl,
+  slogan,
+  paragraph,
+  email,
+}) => (
+  <Grid>
+    <img
+      className="object-cover w-64 h-64 mx-auto border rounded-full shadow-xl border-dark sm:mb-6"
+      src={profilePicUrl}
+      alt="profile_pic"
+    />
+    <div className="col-span-2">
+      <h2 className="mb-3 text-4xl sm:mb-6 text-dark sm:text-center sm:text-3xl">
+        {slogan}
+      </h2>
+      <Text>{paragraph}</Text>
+      <div className="flex justify-end mt-6">
+        <Button>
+          <a href={`mailto:${email}`}>Contact Me</a>
+        </Button>
+      </div>
+    </div>
+  </Grid>
+);
+export default Welcome;

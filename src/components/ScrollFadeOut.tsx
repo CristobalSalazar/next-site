@@ -1,8 +1,12 @@
-import { useRef } from "react";
+import { HTMLAttributes, useRef } from "react";
 import useScroll from "../hooks/useScroll";
 
-interface ScrollFadeOutProps {}
-const ScrollFadeOut: React.FC<ScrollFadeOutProps> = ({ children }) => {
+type DivProps = React.DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+interface ScrollFadeOutProps extends DivProps {}
+const ScrollFadeOut: React.FC<ScrollFadeOutProps> = ({ children, ...rest }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useScroll((e) => {
@@ -13,7 +17,11 @@ const ScrollFadeOut: React.FC<ScrollFadeOutProps> = ({ children }) => {
     ).toString();
   });
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div {...rest} ref={ref}>
+      {children}
+    </div>
+  );
 };
 
 export default ScrollFadeOut;
